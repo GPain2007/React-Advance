@@ -1,4 +1,4 @@
-import { useState, memo, useCallback, useMemo } from "react";
+import { useState, memo, useCallback, useMemo, useEffect } from "react";
 
 import IconButton from "../UI/IconButton.jsx";
 import MinusIcon from "../UI/Icons/MinusIcon.jsx";
@@ -30,6 +30,12 @@ const Counter = memo(function Counter({ initialCount }) {
     () => isPrime(initialCount),
     [initialCount]
   );
+
+  //trying to force component reset when the 'Set' button is pressed
+
+  // useEffect(() => {
+  //   setCounterChanges([{ value: initialCount, id: Math.random() * 100 }]);
+  // }, [initialCount]);
 
   // const [counter, setCounter] = useState(initialCount);
   const [counterChanges, setCounterChanges] = useState([
